@@ -4,7 +4,7 @@ services:
     ports:
       - 8100:80
     volumes:
-      - ./../App:/var/www/html
+      - ./../app:/var/www/html
     hostname: web
     container_name: web
   mysql:
@@ -14,18 +14,19 @@ services:
     environment:
       - MYSQL_USER=alumno
       - MYSQL_PASSWORD=alumno
-      - MYSQL_ROOT_PASSWORD=1234root
-      - MYSQL_DATABASE=alumno
+      - MYSQL_ROOT_PASSWORD=root12345
+      - MYSQL_DATABASE=alumnos
     volumes:
       - mysql:/var/lib/mysql
+      - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
+      - ./mysql.cnf:/etc/mysql/conf.d/my.cnf
   phpmyadmin:
-     image : phpmyadmin
-     ports:
+    image: phpmyadmin
+    ports:
       - 8101:80
-     environment:
+    environment:
       - PMA_HOST=mysql
-      - PMA_ARBITRARY= 1
-     depends_on:
+    depends_on:
       - mysql
 volumes:
   mysql:

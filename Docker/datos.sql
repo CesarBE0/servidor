@@ -1,4 +1,4 @@
-USE `tienda`;
+USE `alumnos`;
 -- Creamos las tablas en la base de datos creada
 
 CREATE TABLE  `tienda` (
