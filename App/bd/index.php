@@ -1,5 +1,6 @@
 <?php
 
-$conexion = new mysqli("mysql","alumno","alumno","alumnos")
+$conexion = new mysqli("mysql","alumno","alumno","alumnos");
+var_dump($conexion);
 
 ?>
