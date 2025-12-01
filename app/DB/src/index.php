@@ -1,23 +1,43 @@
+
 <?php
-require_once __DIR__ .'/../vendor/autoload.php';
-use Class\DataBase\BaseDatos;
+require_once __DIR__ . '/../vendor/autoload.php';
+use Database\BD;
 use Dotenv\Dotenv;
-use Class\View\Plantilla;
 $dotenv = Dotenv::createImmutable(__DIR__."./../");
 $dotenv->load();
 $opcion = $_POST['submit'] ?? null;
-$con = BaseDatos::getInstance();
+$con = BD::getInstance();
+$header_html = "";
+$msj ="";
+session_start();
 switch($opcion){
-    case "Login":
+    case 'Login':
+        $nombre = $_POST['name'];
+        $password = $_POST['password'];
+
+        $resultado = $con->Login($nombre, $password);
+        if($resultado === true){
+            $_SESSION['usuario'] = $nombre;
+            header('location: ../src/sitio.php');
+            exit;
+        } else {
+            $msj = $resultado;
+        }
         break;
+
     case "Register":
-        //Registrarme
-        //Leer datos
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        $msj = $con->Register($nombre, $apellido);
+        $nombre = $_POST['name'];
+        $password = $_POST['password'];
+        $exito = $con->Register($nombre, $password);
+
+        if ($exito === true) {
+            $_SESSION['usuario'] = $nombre;
+            header('location: ../src/sitio.php');
+            exit;
+        } else {
+            $msj = $exito;
+        }
         break;
-    default:
 }
 
 ?>
@@ -63,6 +83,7 @@ switch($opcion){
 
     </form>
 </fieldset>
-
+<span class="text-sm text-red-400"><?= "$msj"  ?></span>
 </body>
+
 </html>
