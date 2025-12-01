@@ -1,3 +1,4 @@
+CREATE DATABASE IF NOT EXISTS alumnos;
 USE `alumnos`;
 -- Creamos las tablas en la base de datos creada
 

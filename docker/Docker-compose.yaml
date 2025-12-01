@@ -15,11 +15,12 @@ services:
       - MYSQL_USER=alumno
       - MYSQL_PASSWORD=alumno
       - MYSQL_ROOT_PASSWORD=root12345
-      - MYSQL_DATABASE=alumnos
+      #- MYSQL_DATABASE=alumnos
     volumes:
       - mysql:/var/lib/mysql
-      - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
       - ./mysql.cnf:/etc/mysql/conf.d/my.cnf
+      - ./datos.sql:/docker-entrypoint-initdb.d/datos.sql
+      - ./db_lectio.sql:/docker-entrypoint-initdb.d/db_lectio.sql
   phpmyadmin:
     image: phpmyadmin
     ports:
