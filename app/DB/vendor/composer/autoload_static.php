@@ -21,6 +21,7 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         ),
         'P' =>
         array (
+            'Plantilla\\' => 10,
             'PhpOption\\' => 10,
         ),
         'G' =>
@@ -30,6 +31,7 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         'D' =>
         array (
             'Dotenv\\' => 7,
+            'Database\\' => 9,
         ),
     );
 
@@ -46,6 +48,10 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Plantilla\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/View',
+        ),
         'PhpOption\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
@@ -57,6 +63,10 @@ class ComposerStaticInitd751713988987e9331980363e24189ce
         'Dotenv\\' =>
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+        'Database\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/Class',
         ),
     );
 
