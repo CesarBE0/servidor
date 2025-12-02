@@ -43,6 +43,9 @@ $header_hmtl = Plantilla::getHeader($usuario, "listado.php");
         <input type="submit" name="eliminar" value="eliminar" id=""><br>
         <input type="submit" name="Editar" value="Editar" id="">
     </form>
+    <form action="sitio.php" method="post">
+        <input type="submit" value="Volver">
+    </form>
 </fieldset>
 </body>
 </html>
