@@ -1,8 +1,9 @@
 <?php
-
 use examen1ev\clases\Plantilla;
 
 require "controlador.php";
+
+$usuario = $_SESSION['usuario'];
 ?>
 <!doctype html>
 <html lang="es">
@@ -19,6 +20,13 @@ require "controlador.php";
     </script>
 </head>
 <body>
+<nav style="background-color: #eee; border-bottom: 2px solid darkblue; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <div style="font-size: 1.1em; color: darkblue; font-weight: bold;">
+        Usuario: <span style="color: black;"><?= htmlspecialchars($usuario) ?></span>
+    </div>
+    <a href="logout.php" style="background-color: #dc3545; color: white; padding: 5px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em;">Cerrar Sesión</a>
+</nav>
+
 <div class="contenedorJugar">
     <div class="opciones">
         <h2>OPCIONES</h2>

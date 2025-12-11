@@ -3,31 +3,42 @@
 use examen1ev\clases\Clave;
 use examen1ev\clases\Jugada;
 
-$carga = fn($clase) => require(__DIR__ . "/clases/$clase.php");
+
+$carga = function($clase) {
+
+    $clase = str_replace('\\', '/', $clase);
+    $partes = explode('/', $clase);
+    $nombreArchivo = end($partes);
+
+    $ruta = __DIR__ . "/clases/$nombreArchivo.php";
+
+    if (file_exists($ruta)) {
+        require_once $ruta;
+    }
+};
 spl_autoload_register($carga);
 
 session_start();
 
-$clave = Clave::obtener_clave();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+    exit;
+}
 
+$clave = Clave::obtener_clave();
 $mostrar_ocultar_clave = "Mostrar Clave";
 $informacion = "";
 
-/**
- * @return void
- * El juego termina si he acertado 4 posiciones en la jugada actual
- * O si ya he realizado 10 jugadas
- */
 function evaluar_fin_juego(Jugada $jugada)
 {
     if ($jugada->get_posiciones_acertadas() == 4) {
-        $win = true;
-        header("location:fin.php?win=$win");
+        header("location:fin.php?win=true");
         exit;
     }
-    if (sizeof($_SESSION['jugadas']) >= 10) {
-        $win = false;
-        header("location:fin.php?win=$win");
+
+    $jugadas = $_SESSION['jugadas'] ?? [];
+    if (count($jugadas) >= 14) {
+        header("location:fin.php?win=false");
         exit;
     }
 }
@@ -45,15 +56,18 @@ switch ($opcion) {
     case "Jugar":
         if (isset($_POST['combinacion'])) {
             $jugada = new Jugada($_POST['combinacion']);
+            if (!isset($_SESSION['jugadas'])) $_SESSION['jugadas'] = [];
+
             $_SESSION['jugadas'][] = serialize($jugada);
             evaluar_fin_juego($jugada);
             $informacion = Jugada::obtener_historico_jugadas();
         }
         break;
     case "Resetear la Clave":
-        session_destroy();
-        session_start();
-        $clave = Clave::obtener_clave();
-        break;
+        unset($_SESSION['clave']);
+        unset($_SESSION['jugadas']);
+        Clave::obtener_clave();
+        header("Location: jugar.php");
+        exit;
 }
 ?>
