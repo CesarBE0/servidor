@@ -1,11 +1,13 @@
 <?php
 session_start();
 
+// Si no hay sesión, redirigir al login
 if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit;
 }
 
+// Reiniciamos la partida al entrar al inicio
 unset($_SESSION['clave']);
 unset($_SESSION['jugadas']);
 
@@ -20,10 +22,16 @@ $usuario = $_SESSION['usuario'];
 </head>
 <body>
 <nav style="background-color: #eee; border-bottom: 2px solid darkblue; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <div style="font-size: 1.1em; color: darkblue; font-weight: bold;">
-        Usuario: <span style="color: black;"><?= htmlspecialchars($usuario) ?></span>
+    <div style="font-size: 1.5em; font-weight: bold; color: darkblue;">
+        Juego de Master Mind
     </div>
-    <a href="logout.php" style="background-color: #dc3545; color: white; padding: 5px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em;">Cerrar Sesión</a>
+
+    <div style="display: flex; align-items: center; gap: 20px;">
+        <div style="font-size: 1.1em; color: darkblue; font-weight: bold;">
+            Usuario: <span style="color: black;"><?= htmlspecialchars($usuario) ?></span>
+        </div>
+        <a href="logout.php" style="background-color: #dc3545; color: white; padding: 5px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9em;">Cerrar Sesión</a>
+    </div>
 </nav>
 
 <div class="containerIndex">
@@ -41,7 +49,7 @@ $usuario = $_SESSION['usuario'];
                     <li>cuántos de ellos están en la posición correcta.</li>
                 </ul>
             </li>
-            <li>No se especificará cuáles son las posiciones acertadas.</li>
+            <li>No se especificará cuáles son las posiciones acertadas en caso de acierto.</li>
         </ol>
         <hr/>
         <form action="jugar.php">
