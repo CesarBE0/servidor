@@ -2,7 +2,6 @@
 
 use examen1ev\clases\Clave;
 
-// Autoloader corregido
 $carga = function($clase) {
     $clase = str_replace('\\', '/', $clase);
     $partes = explode('/', $clase);
@@ -23,9 +22,7 @@ if (!isset($_SESSION['usuario'])) {
 
 $usuario = $_SESSION['usuario'];
 $win = isset($_GET['win']) ? ($_GET['win'] === 'true') : false;
-// Aseguramos carga de la clave si está vacía (por seguridad)
 if (empty(Clave::obtener_clave())) {
-    // Si no hay clave en sesión (raro en fin.php), esto evitaría el error visual
 }
 $clave = Clave::obtener_clave();
 $jugadas = $_SESSION['jugadas'] ?? [];

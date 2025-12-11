@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// Si no hay sesión, redirigir al login
 if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit;
 }
 
-// Reiniciamos la partida al entrar al inicio
 unset($_SESSION['clave']);
 unset($_SESSION['jugadas']);
 

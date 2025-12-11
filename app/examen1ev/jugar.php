@@ -1,7 +1,7 @@
 <?php
 use examen1ev\clases\Plantilla;
 
-require "controlador.php"; // El controlador ya inicia sesión y verifica login
+require "controlador.php";
 
 $usuario = $_SESSION['usuario'];
 ?>
