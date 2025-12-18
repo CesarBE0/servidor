@@ -1,4 +1,5 @@
 CREATE DATABASE IF NOT EXISTS alumnos;
+GRANT ALL PRIVILEGES ON alumnos.* TO 'alumno'@'%';
 USE `alumnos`;
 -- Creamos las tablas en la base de datos creada
 

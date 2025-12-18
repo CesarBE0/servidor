@@ -48,7 +48,7 @@ ul{
     color:crimson;
     font-style: oblique;
     font-size:1.5em;
-    font-family: "DejaVu Sans";
+    font-family: "DejaVu Sans", serif;
     align-items: end;
 }
 
