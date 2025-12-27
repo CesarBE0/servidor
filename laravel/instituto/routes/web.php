@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumnoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 
@@ -7,20 +8,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("saludo", fn()=> "Hola mundo");
-
-
-Route::get("saludo", function () {
-    return "Hola mundo";
+Route::get('/saludo', function () {
+    return "hola";
 });
 
-Route::get("saludo", fn()=> view ("saludo"));
-//Route::get("main", fn()=> view ("main"));
-Route::get("main", [MainController::class, "index"]);
+Route::view("/ver", "saludo");
 
-Route::fallback(function (){
-    $nombre = request()->path();
+Route::get("/main", [MainController::class, "index"]);
 
-return "<h1>Esta ruta <span style='color: red'>$nombre</span> no existe</h1>";
+Route::fallback(function () {
+    $ruta = request()->url();
+    return "te has perdido gang, $ruta no existe";
 });
 
+Route::get("/alumnos/{id}", AlumnoController::class);
+
+Route::view("about", "about")->name("about");
+Route::view("noticias", "noticias")->name("noticias");
