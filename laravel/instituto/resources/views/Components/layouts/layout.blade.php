@@ -7,14 +7,16 @@
 
     @vite("resources/css/app.css")
 </head>
-<body>
+<body class="bg-gray-50 min-h-screen">
 <x-layouts.header />
-<nav>
-    <a href="{{route("about")}}">Volver al About</a>
-    <a href="{{route("noticias")}}">Volver al Noticias</a>
+
+<nav class="bg-white border-b border-gray-200 py-3 px-10 flex gap-5">
+    <a href="{{route('about')}}" class="text-gray-600 hover:text-blue-500 text-sm">About</a>
+    <a href="{{route('noticias')}}" class="text-gray-600 hover:text-blue-500 text-sm">Noticias</a>
 </nav>
-<main>
-    {{ $slot  }}
+
+<main class="p-10">
+    {{ $slot }}
 </main>
 </body>
 </html>

@@ -18,7 +18,7 @@ Route::get("/main", [MainController::class, "index"]);
 
 Route::fallback(function () {
     $ruta = request()->url();
-    return "te has perdido gang, $ruta no existe";
+    return "La ruta <b style='color: red'>$ruta</b> no existe";
 });
 
 Route::get("/alumnos/{id}", AlumnoController::class);
