@@ -8,6 +8,10 @@
       <sourceFolder url="file://$MODULE_DIR$/laravel/instituto/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
       <sourceFolder url="file://$MODULE_DIR$/laravel/instituto/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/laravel/instituto/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel/instituto-daw2-larave-/instituto/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel/instituto-daw2-larave-/instituto/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel/instituto-daw2-larave-/instituto/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/laravel/instituto-daw2-larave-/instituto/tests" isTestSource="true" packagePrefix="Tests\" />
       <excludeFolder url="file://$MODULE_DIR$/app/DB/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/app/DB/vendor/graham-campbell/result-type" />
       <excludeFolder url="file://$MODULE_DIR$/app/DB/vendor/phpoption/phpoption" />
