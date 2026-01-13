@@ -1,4 +1,4 @@
-<header class="h-20 bg-bg-header flex justify-between items-center px-8 shadow-md">
+<header class="h-header bg-header flex justify-between items-center px-8 shadow-md">
 
     {{-- Logo --}}
     <div class="flex items-center h-full">

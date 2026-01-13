@@ -4,8 +4,9 @@
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
+@plugin "daisyui";
 
 @theme {
-    --color-bg-header: #87CEEB;
+    --color-header: #87CEEB;
     --color-btn-marino: #012860;
 }

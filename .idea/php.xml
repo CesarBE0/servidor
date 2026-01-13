@@ -264,6 +264,7 @@
       <path value="$PROJECT_DIR$/app/practica-documentacion/vendor/league/uri-interfaces" />
       <path value="$PROJECT_DIR$/app/practica-documentacion/vendor/dflydev/dot-access-data" />
       <path value="$PROJECT_DIR$/app/practica-documentacion/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/laravel/instituto/vendor/laravel/breeze" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
