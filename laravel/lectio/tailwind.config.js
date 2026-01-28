@@ -1,5 +1,4 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
-import forms from '@tailwindcss/forms';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -12,10 +11,23 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Inter', ...defaultTheme.fontFamily.sans],
+                serif: ['Merriweather', ...defaultTheme.fontFamily.serif],
             },
+            colors: {
+                brand: {
+                    red: '#d64028',
+                    bg: '#fff7ed',
+                }
+            }
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        require("daisyui")
+    ],
+
+    daisyui: {
+        themes: ["light"],
+    },
 };
